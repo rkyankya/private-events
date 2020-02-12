@@ -5,11 +5,20 @@
       <p>When?: <%= @event.date %></p>
       <p>Where?: <%= @event.location %></p>
       <p>Created by: <%= @user.name %></p>
+      <%= form_for (:invitation) do |f| %>
+        <% @other_users.each do |user| %>
+          <%= f.label "#{user.id}".to_sym, "#{user.name}" %>
+          <%= f.check_box "#{user.id}".to_sym %>
+        <% end %>
+        <%= f.submit 'Invite' %>
+      <% end %>
+      <% unless @event.attendees.nil? %> 
       <ul>
-      <% @event.attendees.each do |attend| %>
+        <% @event.attendees.each do |attend| %>
       <li>
         <%= attend.username %>
       </li>
+      <% end %>
       <% end %>
       </ul>
     </div>
