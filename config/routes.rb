@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  get 'users/new'
-  get 'users/create'
-  get 'users/show'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  delete '/logout', to: 'sessions#destroy'
+  post '/login', to: 'sessions#create'
+  get '/login', to: 'sessions#new'
+  root 'users#new'
+  resources :users, only: %i[show create new]
 end
