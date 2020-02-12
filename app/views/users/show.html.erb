@@ -5,3 +5,16 @@
         </div>
     <div class="col"></div>
 </div>
+
+<div class="row">
+    <div class="col"></div>
+        <div class="col-4">
+            <% @event.each do |event| %>
+                <%= @event.name %>
+                <%= @event.location %>
+                <%= @event.description %>
+                <%= @event.date %>
+            <% end %>
+        </div>
+    <div class="col"></div>
+</div>
