@@ -1,19 +1,19 @@
 <div class="row">
     <div class="col"></div>
         <div class="col-4">
-            <%= @user.name %>
-        </div>
-    <div class="col"></div>
-</div>
-
-<div class="row">
-    <div class="col"></div>
-        <div class="col-4">
-            <% @user.events.each do |event| %>
-                <%= event.description %>
-                <%= event.location %>
-                <%= event.date %>
-            <% end %>
+            <h2><%= @user.name %></h2>
+            <h3>Upcoming events</h3>
+            <ul>
+                <% @user.attended_events.upcom.each do |event| %>
+                <li><%= link_to  "#{event.description}", "../../users/#{event.creator_id}/events/#{event.id}" %></li>
+                <% end %>
+            </ul>
+            <h3>Past events</h3>
+            <ul>
+                <% @user.attended_events.past.each do |event| %>
+                <li><%= link_to  "#{event.description}", "../../users/#{event.creator_id}/events/#{event.id}" %></li>
+                <% end %>
+            </ul>
         </div>
     <div class="col"></div>
 </div>

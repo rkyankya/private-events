@@ -12,6 +12,7 @@ class EventsController < ApplicationController
 
   def show
     @user = User.find(params[:user_id])
+    @other_users = User.where.not(id: params[:user_id])
     @event = Event.find(params[:id])
   end
 

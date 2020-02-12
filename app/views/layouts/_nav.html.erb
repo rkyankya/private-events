@@ -1,10 +1,11 @@
 <nav>
   <% if logged_in? %>
-    <%= link_to  "#{@current_user.name}", @user, class: 'btn btn-secundary' %>
+    <%= link_to  "#{@current_user.name}", @current_user, class: 'btn btn-secundary' %>
     <%= link_to  "Log out", logout_path, method: :delete, class: 'btn btn-secundary' %>
+    <%= link_to  "Home", root_path, class:'btn btn-secundary' %>
     <%= link_to  "New event", new_event_path, class: 'btn btn-primary' %>
   <% else %>
     <%= link_to  "Sign in", login_path, class: 'btn btn-primary' %>
+    <%= link_to  "Home", root_path, class:'btn btn-secundary' %>
   <% end %>
-  <%= link_to  "Home", root_path, class:'btn btn-secundary' %>
 </nav>

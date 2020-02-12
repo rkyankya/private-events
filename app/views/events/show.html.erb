@@ -5,10 +5,13 @@
       <p>When?: <%= @event.date %></p>
       <p>Where?: <%= @event.location %></p>
       <p>Created by: <%= @user.name %></p>
+      <ul>
+      <% @event.attendees.each do |attend| %>
+      <li>
+        <%= attend.username %>
+      </li>
+      <% end %>
+      </ul>
     </div>
   <div class="col"></div>
 </div>
-
-<%= @event.attendees do |attendee| %>
-  <%= attendee.name%>
-<% end %>
