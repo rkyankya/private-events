@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col"></div>
+    <div class="col-4">
+    <h2>All events!</h2>
+      <ul>
+        <% @events.reverse_each do |event| %>
+          <li>
+            <%= link_to  "#{event.description}", "users/#{event.creator_id}/events/#{event.id}" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <div class="col"></div>
+</div>

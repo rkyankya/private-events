@@ -9,11 +9,10 @@
 <div class="row">
     <div class="col"></div>
         <div class="col-4">
-            <% @event.each do |event| %>
-                <%= @event.name %>
-                <%= @event.location %>
-                <%= @event.description %>
-                <%= @event.date %>
+            <% @user.events.each do |event| %>
+                <%= event.description %>
+                <%= event.location %>
+                <%= event.date %>
             <% end %>
         </div>
     <div class="col"></div>
