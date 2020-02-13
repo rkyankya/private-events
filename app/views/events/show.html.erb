@@ -9,9 +9,11 @@
         <h2>Attendees</h2>
         <ul>
             <% @event.invitations.each do |invitation| %>
-            <li>
-              <%= invitation.attendee.name if invitation.accepted  %>
-            </li>
+              <% if invitation.accepted  %>
+                <li>
+                  <%= invitation.attendee.name %>
+                </li>
+              <% end %>
           <% end %>
         </ul>
       <% end %>
@@ -24,10 +26,8 @@
           <%= f.submit 'Invite' %>
         <% end %>
       <% else %>
-        <% if allowed?(@current_user.id) %>
-          <%= form_for (:invitation) do |f| %>
-            <%= f.submit 'I am going!', class: 'btn btn-primary' %>
-          <% end %>
+        <%= form_for (:invitation) do |f| %>
+          <%= f.submit go_nogo, class: 'btn btn-primary' %>
         <% end %>
       <% end %>
     </div>
