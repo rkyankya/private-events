@@ -2,16 +2,32 @@
     <div class="col"></div>
         <div class="col-4">
             <h2><%= @user.name %></h2>
-            <h3>Upcoming events</h3>
+            <h4>Upcoming events</h4>
             <ul>
                 <% @user.attended_events.upcom.each do |event| %>
                 <li><%= link_to  "#{event.description}", "../../users/#{event.creator_id}/events/#{event.id}" %></li>
                 <% end %>
             </ul>
-            <h3>Past events</h3>
+            <h4>Past events</h4>
             <ul>
                 <% @user.attended_events.past.each do |event| %>
                 <li><%= link_to  "#{event.description}", "../../users/#{event.creator_id}/events/#{event.id}" %></li>
+                <% end %>
+            </ul>
+            <h4>My events</h4>
+                <ul>
+                    <% @user.events.each do |event| %>
+                    <li><%= link_to  "#{event.description}", "../../users/#{event.creator_id}/events/#{event.id}" %></li>
+                    <% end %>
+                </ul>
+            <h4>Invitations</h4>
+            <ul>
+                <% if invited_to %>
+                    <% invited_to.each do |event| %>
+                      <% if event.date > Time.now %>  
+                        <li><%= link_to  "#{event.description}", "../../users/#{event.creator_id}/events/#{event.id}" %></li>
+                      <% end %>
+                    <% end %>
                 <% end %>
             </ul>
         </div>

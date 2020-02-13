@@ -19,7 +19,7 @@ module SessionsHelper
   end
 
   def correct_user
-    redirect_to root_path unless current_user == User.find(params[:id])
+    current_user == User.find(params[:user_id])
   end
 
   def login_if_not_logged

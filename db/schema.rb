@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2020_02_12_221934) do
     t.integer "attendee_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "allow_id"
+    t.boolean "accepted", default: false
   end
 
   create_table "users", force: :cascade do |t|
