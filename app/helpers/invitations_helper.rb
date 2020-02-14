@@ -46,4 +46,10 @@ module InvitationsHelper
 
     "I'm going"
   end
+
+  def check_invitation(check_inv)
+    check = check_inv.find_by(attendee_id: current_user.id)
+    check.accepted = !check.accepted
+    check.save
+  end
 end

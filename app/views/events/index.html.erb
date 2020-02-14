@@ -5,7 +5,7 @@
       <ul>
         <% @events.upcom.each do |event| %>
           <li>
-            <%= link_to  "#{event.description}", "users/#{event.creator_id}/events/#{event.id}" %>
+            <%= link_to  "#{event.description}", user_event_path(event.creator, event) %>
           </li>
         <% end %>
       </ul>
@@ -13,7 +13,7 @@
       <ul>
         <% @events.past.each do |event| %>
           <li>
-            <%= link_to  "#{event.description}", "users/#{event.creator_id}/events/#{event.id}" %>
+            <%= link_to  "#{event.description}", user_event_path(event.creator, event) %>
           </li>
         <% end %>
       </ul>

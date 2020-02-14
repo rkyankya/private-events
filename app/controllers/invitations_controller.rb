@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class InvitationsController < ApplicationController
   def new; end
 
@@ -20,9 +18,7 @@ class InvitationsController < ApplicationController
       end
       flash[:success] = 'Invitations sent!'
     else
-      check = check_inv.find_by(attendee_id: current_user.id)
-      check.accepted = !check.accepted
-      check.save
+      check_invitation(check_inv)
     end
     redirect_to re_path
   end

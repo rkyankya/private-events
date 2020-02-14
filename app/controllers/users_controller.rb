@@ -1,6 +1,5 @@
-# frozen_string_literal: true
-
 class UsersController < ApplicationController
+  before_action :login_if_not_logged
   def new
     @user = User.new
   end

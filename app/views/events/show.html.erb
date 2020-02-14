@@ -25,7 +25,7 @@
           <% end %>
           <%= f.submit 'Invite' %>
         <% end %>
-      <% else %>
+      <% elsif invited?(@current_user.id) %>
         <%= form_for (:invitation) do |f| %>
           <%= f.submit go_nogo, class: 'btn btn-primary' %>
         <% end %>

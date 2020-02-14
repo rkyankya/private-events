@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -28,6 +26,8 @@ gem 'simple_sessions', '~> 0.2.2'
 gem 'sassc'
 # For bootstrap
 gem 'bootstrap', '~> 4.4.1'
+# Gem for test
+gem 'rails-controller-testing'
 
 gem 'faker'
 gem 'hirb'

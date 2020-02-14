@@ -3,7 +3,10 @@
 one:
   attended_event_id: 1
   attendee_id: 1
+  accepted: false
+
 
 two:
   attended_event_id: 1
-  attendee_id: 1
+  attendee_id: 2
+  accepted: true
