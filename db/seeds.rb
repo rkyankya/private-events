@@ -41,3 +41,5 @@ p 'Events Have been Created'
 end
 
 p 'Invitations have been created'
+
+p 'ALL TABLES HAVE BEEN GENERATED WITH DATA SUCCESSFULLY'
