@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col"></div>
+    <div class="col-4">
+      <h3><%= @event.description %></h3>
+      <p>When?: <%= @event.date %></p>
+      <p>Where?: <%= @event.location %></p>
+      <p>Created by: <%= @user.name %></p>
+      <% if any_attendee? %> 
+        <h2>Attendees</h2>
+        <ul>
+            <% @event.invitations.each do |invitation| %>
+              <% if invitation.accepted  %>
+                <li>
+                  <%= invitation.attendee.name %>
+                </li>
+              <% end %>
+          <% end %>
+        </ul>
+      <% end %>
+      <% if correct_user %>
+        <%= form_for (:invitation) do |f| %>
+          <% @other_users.each do |user| %>
+            <%= f.label "#{user.id}".to_sym, "#{user.name}" %>
+            <%= f.check_box "#{user.id}", checked: invited?(user.id) %> <br>
+          <% end %>
+          <%= f.submit 'Invite' %>
+        <% end %>
+      <% elsif invited?(@current_user.id) %>
+        <%= form_for (:invitation) do |f| %>
+          <%= f.submit go_nogo, class: 'btn btn-primary' %>
+        <% end %>
+      <% end %>
+    </div>
+  <div class="col"></div>
+</div>

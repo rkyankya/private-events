@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col"></div>
+    <div class="col-4">
+    <h2>Upcoming events</h2>
+      <ul>
+        <% @upcoming_events.each do |event| %>
+          <li>
+            <%= link_to  "#{event.description}", user_event_path(event.creator, event) %>
+          </li>
+        <% end %>
+      </ul>
+    <h2>Past events</h2>
+      <ul>
+        <% @past_events.each do |event| %>
+          <li>
+            <%= link_to  "#{event.description}", user_event_path(event.creator, event) %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <div class="col"></div>
+</div>
