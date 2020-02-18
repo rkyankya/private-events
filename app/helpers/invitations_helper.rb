@@ -36,7 +36,15 @@ module InvitationsHelper
   def events_going(user_id)
     inv = Invitation.where(attendee_id: user_id)
     inv = inv.where(accepted: true)
-    inv.map(&:attended_event)
+    inv = inv.map(&:attended_event)
+    inv.select { |x| x.date > Time.now }
+  end
+
+  def events_attended(user_id)
+    inv = Invitation.where(attendee_id: user_id)
+    inv = inv.where(accepted: true)
+    inv = inv.map(&:attended_event)
+    inv.select { |x| x.date < Time.now }
   end
 
   def go_nogo
